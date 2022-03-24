@@ -10,7 +10,7 @@
 
 This project shows how to send transactional email asynchronously by Sendinblue API from AWS lambda and AWS SQS
 
-If you don't want to use Sendinblue you can adapt the lambda function in *src/send_email_sendinblue.py*, *requirements.txt* and adapt *SENDINBLUE_API_KEY* environment variable.
+If you don't want to use Sendinblue you can adapt the lambda function in *src/send_email_sendinblue.py* and *requirements.txt*
 
 ### Setup cloud environment
 - Create queue on AWS SQS [doc](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_CreateQueue.html)
