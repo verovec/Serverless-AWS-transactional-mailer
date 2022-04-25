@@ -11,6 +11,9 @@
 This project shows how to send transactional email asynchronously by Sendinblue API from AWS lambda and AWS SQS
 
 If you don't want to use Sendinblue you can adapt the lambda function in *src/send_email_sendinblue.py* and *requirements.txt*
+### Cloud architecture :
+
+![](ressources/cloud-architecture.png)
 
 ### Setup cloud environment
 - Create queue on AWS SQS [doc](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_CreateQueue.html)
@@ -44,26 +47,3 @@ docker build . -t serverless:node17-alpine3.14
 docker run --env-file .env serverless:node17-alpine3.14
 ```
 
-### Cloud architecture :
-
-![](ressources/cloud-architecture.png)
-
-
-# Files structure
-
-```
-Serverless-AWS-transactional-mailer
- │
- ├── src
- │   └── send_email_sendinblue
- │        └── send_email_sendinblue.py
- │
- ├── test
- │    └── test_mailer.py
- │
- ├── requirements.txt
- │
- ├── serverless.yml
- |
- └── ressources
-```
