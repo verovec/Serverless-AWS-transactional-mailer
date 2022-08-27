@@ -11,15 +11,16 @@
 This project shows how to send transactional email asynchronously by Sendinblue API from AWS lambda and AWS SQS
 
 If you don't want to use Sendinblue you can adapt the lambda function in *src/send_email_sendinblue.py* and *requirements.txt*
+
+For the following section we assume that you are logged in to AWS locally [aws configure](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html)
 ### Cloud architecture :
 
 ![](ressources/cloud-architecture.png)
 
-### Setup cloud environment
-- Create queue on AWS SQS [doc](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_CreateQueue.html)
-- Create bucket on AWS S3 [doc](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-bucket.html)
-- Register and create template email on Sendinblue [doc](https://help.sendinblue.com/hc/en-us/articles/360019787120-Cr%C3%A9er-un-template-d-email)
-- For the following section we assume that you are logged in to AWS locally [aws configure](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html)
+### How To
+- Create queue on AWS SQS [documentation](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_CreateQueue.html)
+- Create bucket on AWS S3 [documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/creating-bucket.html)
+- Register and create template email on Sendinblue [documentation](https://help.sendinblue.com/hc/en-us/articles/360019787120-Cr%C3%A9er-un-template-d-email)
   
   
 ### Define secret variables
