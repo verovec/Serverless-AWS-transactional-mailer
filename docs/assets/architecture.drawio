@@ -1,0 +1,47 @@
+<mxfile host="drawio" modified="2026-10-22T00:00:00.000Z" agent="hand-written" version="24.0.0" type="device">
+  <diagram id="mailer" name="Cloud architecture">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="900" pageHeight="420" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <mxCell id="aws" value="AWS cloud, eu-west-1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8fafc;strokeColor=#334155;fontColor=#0f172a;fontStyle=1;fontSize=13;verticalAlign=top;align=left;spacingLeft=12;spacingTop=4;dashed=1;dashPattern=6 4;arcSize=6;" vertex="1" parent="1">
+          <mxGeometry x="230" y="30" width="420" height="350" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="client" value="Client&lt;br&gt;&lt;font style=&quot;font-size: 11px&quot; color=&quot;#475569&quot;&gt;any producer with boto3&lt;/font&gt;" style="shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.client;fillColor=#334155;strokeColor=none;fontColor=#0f172a;fontSize=12;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;whiteSpace=wrap;labelBackgroundColor=none;spacingTop=4;labelWidth=160;" vertex="1" parent="1">
+          <mxGeometry x="50" y="215" width="64" height="64" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="sqs" value="Simple Queue Service&lt;br&gt;&lt;font style=&quot;font-size: 11px&quot; color=&quot;#475569&quot;&gt;standard queue&lt;/font&gt;" style="shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.sqs;fillColor=#E7157B;strokeColor=none;fontColor=#0f172a;fontSize=12;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;whiteSpace=wrap;labelBackgroundColor=none;spacingTop=4;labelWidth=160;" vertex="1" parent="1">
+          <mxGeometry x="280" y="215" width="64" height="64" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="lambda" value="Lambda function&lt;br&gt;&lt;font style=&quot;font-size: 11px&quot; color=&quot;#475569&quot;&gt;send-email, Python 3.9&lt;/font&gt;" style="shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.lambda;fillColor=#ED7100;strokeColor=none;fontColor=#0f172a;fontSize=12;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;whiteSpace=wrap;labelBackgroundColor=none;spacingTop=4;labelWidth=160;" vertex="1" parent="1">
+          <mxGeometry x="500" y="215" width="64" height="64" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="s3" value="Amazon S3&lt;br&gt;&lt;font style=&quot;font-size: 11px&quot; color=&quot;#475569&quot;&gt;deployment bucket&lt;/font&gt;" style="shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.s3;fillColor=#7AA116;strokeColor=none;fontColor=#0f172a;fontSize=12;labelPosition=left;verticalLabelPosition=middle;align=right;verticalAlign=middle;html=1;whiteSpace=wrap;labelBackgroundColor=none;spacingRight=10;labelWidth=160;" vertex="1" parent="1">
+          <mxGeometry x="500" y="60" width="64" height="64" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="mail" value="API mail service&lt;br&gt;&lt;font style=&quot;font-size: 11px&quot; color=&quot;#475569&quot;&gt;Sendinblue transactional API&lt;/font&gt;" style="shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.email;fillColor=#0ea5e9;strokeColor=none;fontColor=#0f172a;fontSize=12;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;whiteSpace=wrap;labelBackgroundColor=none;spacingTop=4;labelWidth=160;" vertex="1" parent="1">
+          <mxGeometry x="770" y="215" width="64" height="64" as="geometry"/>
+        </mxCell>
+
+        <mxCell id="e1" value="Push message in queue" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#334155;strokeWidth=1.5;endArrow=block;endFill=1;fontColor=#0f172a;fontSize=11;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="client" target="sqs">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" value="Trigger" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#334155;strokeWidth=1.5;endArrow=block;endFill=1;fontColor=#0f172a;fontSize=11;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="sqs" target="lambda">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" value="Source code request" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#334155;strokeWidth=1.5;endArrow=block;endFill=1;fontColor=#0f172a;fontSize=11;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="s3" target="lambda">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" value="Send transactional email" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;strokeColor=#334155;strokeWidth=1.5;endArrow=block;endFill=1;fontColor=#0f172a;fontSize=11;labelBackgroundColor=#ffffff;" edge="1" parent="1" source="lambda" target="mail">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
